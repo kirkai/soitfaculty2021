@@ -15,13 +15,20 @@
 
 	<h4>School of IT Faculty Directory</h4>
 	<hr>
-	<table class="table table-bordered">
+	
+	<!-- Create a button to add a new faculty -->
+	<a th:href="@{/Faculties/viewAddForm}" class="btn btn-dark btn-sm mb-2">Add New Faculty Here</a>
+	
+	
+	
+	<table class="table table-bordered table-dark">
 		<thead>
-			<tr class="bg-danger">
+			<tr class="table-danger">
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Title</th>
 				<th>Email</th>
+				<th>Update Info</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,6 +37,11 @@
 				<td th:text="${theFaculty.lastName}"/>
 				<td th:text="${theFaculty.Title}"/>
 				<td th:text="${theFaculty.email}"/>
+				
+				<!--  Update Button -->
+				<td>
+				<a th:href="@{/Faculties/viewUpdateForm(facultyId=${theFaculty.id})}"
+				class="btn btn-danger btn-sm">Update</a>
 		</tbody>
 	</table>
 </div>
